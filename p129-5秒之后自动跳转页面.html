@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        span {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<a href="https://www.baidu.com">支付成功<span>5</span>秒钟之后跳转到首页</a>
+
+<script>
+    //1. 获取元素
+const a = document.querySelector('a')
+let num = 5
+let timerId = setInterval(function() {
+    num--
+    a.innerHTML = `支付成功<span>${num}</span>秒钟之后跳转到首页`
+    // 如果num === 0时间到了，我们停止定时器，并且日动跳转页面
+    if (num === 0){
+        clearInterval(timerId)
+        //跳转页面
+        location.href = 'https://www.baidu.com'
+    }
+},1000)
+
+</script>
+
+</body>
+</html>
